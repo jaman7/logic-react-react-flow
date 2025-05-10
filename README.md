@@ -80,7 +80,7 @@ An interactive educational platform built with React, TypeScript, and React Flow
 ## 🛠 Tech Stack
 
 - **Framework**: React 19, TypeScript
-- **UI Libraries**: PrimeReact, Shadcn UI, Tailwind CSS, SCSS Modules
+- **UI Libraries**: PrimeReact, SCSS Modules
 - **Simulation & Charts**:
   - [React Flow](https://reactflow.dev/) – logic circuit builder
   - [ApexCharts](https://apexcharts.com/) – waveform charts
