@@ -8,24 +8,26 @@ Clone the repository and install dependencies:
 ```bash
 git clone https://github.com/jaman7/logic-react-react-flow.git .
 ```
-1. in the serwer folder run command:
+1. in the server folder run command:
 
 ```bash
 npm i
 ```
 
-1.2 in the server folder run command next first run docker:
 ```bash
+1.2 in the server folder run command next first run docker:
 docker-compose up -d
+```
 
-1.3 in the serwer folders execute:
+1.3 in the server folder execute:
 ```bash
 npm run dev
+```
 
-1. in the client folders run command:
+2. in the client folder run command:
 
 ```bash
-npm install
+npm i
 npm run dev
 ```
 
