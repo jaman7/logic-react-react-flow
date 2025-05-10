@@ -58,7 +58,7 @@ class HttpService {
         const res = await axios.post('auth/refresh', { refreshToken });
         await this.updateTokens(res?.data ?? {});
         originalRequest.headers.Authorization = `Bearer ${res?.data?.accessToken ?? ''}`;
-        return this.http(originalRequest); // ✅ teraz działa
+        return this.http(originalRequest);
       } catch (refreshError) {
         return Promise.reject(refreshError);
       }
@@ -69,30 +69,7 @@ class HttpService {
   private injectInterceptors(): void {
     this.http.interceptors.request.use((config) => config);
 
-    // this.http.interceptors.response.use(
-    //   (response) => response,
-    //   async (error) => {
-    //     const originalRequest = error?.config;
-    //     if (error?.response?.status === 401 && !originalRequest._retry) {
-    //       originalRequest._retry = true;
-    //       const { refreshToken } = cookiesAuth() || {};
-    //       try {
-    //         const res = await axios.post('auth/refresh', { refreshToken });
-    //         await this.updateTokens(res?.data ?? {});
-    //         originalRequest.headers.Authorization = `Bearer ${res?.data?.accessToken ?? ''}`;
-    //         return this.http(originalRequest);
-    //       } catch (refreshError) {
-    //         return Promise.reject(refreshError);
-    //       }
-    //     }
-    //     return Promise.reject(error);
-    //   }
-    // );
-
-    this.http.interceptors.response.use(
-      (response) => response,
-      this.handleUnauthorized.bind(this) // 👉 kontekst this zachowany
-    );
+    this.http.interceptors.response.use((response) => response, this.handleUnauthorized.bind(this));
   }
 
   private async request<T>(method: EHttpMethod, url: string, options: AxiosRequestConfig): Promise<T> {
