@@ -12,7 +12,6 @@ const useResizeObserver = () => {
       if (entry) {
         const { width, height } = entry.contentRect;
 
-        // 🔹 Aktualizujemy tylko jeśli wartości się zmieniły
         setSize((prevSize) => {
           if (prevSize.width !== width || prevSize.height !== height) {
             return { width, height };
