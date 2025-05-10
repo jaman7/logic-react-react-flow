@@ -1,5 +1,6 @@
 # Electronic Logic Gate symulation && build (React + TS + React Flow)
 
+---
 
 ## 🚀 Quick Start
 
@@ -38,7 +39,8 @@ npm run dev
 ### default login:
 email = test@test.io
 password: "Test123$"
- 
+
+--- 
 
 # 🧠 Client:
 An interactive educational platform built with React, TypeScript, and React Flow for simulating, visualizing, and minimizing digital logic functions. The application includes real-time logic gate simulation, Karnaugh map-based minimization, and automatic logic circuit generation.
