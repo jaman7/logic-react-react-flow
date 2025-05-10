@@ -3,7 +3,7 @@
 
 ## 🚀 Quick Start
 
-Clone the repository and install dependencies:
+### Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/jaman7/logic-react-react-flow.git .
@@ -14,14 +14,14 @@ git clone https://github.com/jaman7/logic-react-react-flow.git .
 npm i
 ```
 
-```bash
-
 ### 1.2 in the server folder run command next first run docker:
+
 ```bash
 docker-compose up -d
 ```
 
 ### 1.3 in the server folder execute:
+
 ```bash
 npm run dev
 ```
