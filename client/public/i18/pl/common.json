@@ -30,6 +30,7 @@
     },
     "auth": {
       "status": "Aktualny status",
+      "name": "Imię",
       "email": "E-mail",
       "password": "Hasło",
       "passwordConfirm": "Powtórz Hasło",
@@ -47,6 +48,9 @@
     },
     "error": "Błąd",
     "parsing": {
+      "csvOk": "Wczytano CSV",
+      "csvLoaded": "Wczytano: {{length}} wierszy",
+      "fileUploaded": "Plik przesłany",
       "csvError": "Błąd parsowania CSV: {{error}}",
       "invalidRow": "Nieprawidłowe dane w wierszu {{row}}: {{input}}, {{output}}",
       "unexpectedToken": "Nieoczekiwany token \"{{token}}\" w wyrażeniu.",

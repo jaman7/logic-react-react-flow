@@ -1,5 +1,5 @@
+import LabelNode from '../components/LabelNode/LabelNode';
 import LogicGateNode from '../components/LogicGateNode/LogicGateNode';
-import LabelNode from '../components/nodes/LabelNode';
 
 export const nodeTypes = {
   logicGate: LogicGateNode,

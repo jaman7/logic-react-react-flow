@@ -6,17 +6,22 @@ export const loginConfig = (): IFormElementsConfig => ({
 });
 
 export const defaultConfig = (): IFormElementsConfig => ({
+  name: {},
   email: {},
   password: { config: { formCellType: 'input-password' } },
   passwordConfirm: { config: { formCellType: 'input-password' } },
 });
 
-export const forgotPasswordConfig = (): IFormElementsConfig => ({
-  email: {},
+export const defaultValues = () => ({
+  name: '',
+  email: '',
+  password: '',
+  passwordConfirm: '',
 });
 
-export const updateProfileConfig = (): IFormElementsConfig => ({
-  email: {},
-  password: { config: { formCellType: 'input-password' } },
-  passwordConfirm: { config: { formCellType: 'input-password' } },
+export const loginValues = () => ({
+  name: '',
+  email: '',
+  password: '',
+  passwordConfirm: '',
 });

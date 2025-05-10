@@ -51,10 +51,8 @@ export const registerUserHandler = async (req: Request<{}, {}, RegisterUserInput
     });
     const newUser = omit(user, excludedFields);
     res.status(201).json({
-      status: 'success',
-      data: {
-        user: newUser,
-      },
+      ...newUser,
+      verificationCode,
     });
   } catch (err: any) {
     if (err instanceof PrismaClientKnownRequestError && err.code === 'P2002') {

@@ -30,6 +30,7 @@
     },
     "auth": {
       "status": "Current status",
+      "name": "Name",
       "email": "Email",
       "password": "Password",
       "passwordConfirm": "Confirm password",
@@ -47,6 +48,9 @@
     },
     "error": "Error",
     "parsing": {
+      "csvOk": "CSV loaded",
+      "csvLoaded": "Loaded: {{length}} rows",
+      "fileUploaded": "File Uploaded",
       "csvError": "CSV parsing error: {{error}}",
       "invalidRow": "Invalid data in row {{row}}: {{input}}, {{output}}",
       "unexpectedToken": "Unexpected token \"{{token}}\" in expression.",

@@ -40,14 +40,7 @@ const LogicGatePort: FC<LogicGatePortProps> = ({ id, position, x, y, label, acti
         className={active ? (type === 'input' ? 'stroke-blue' : 'stroke-green') : ''}
       />
       {nodeId && (
-        <foreignObject
-          x={type === 'input' ? x + 2 : x + 1.5}
-          y={y + 1.5}
-          // width="6px"
-          // height="6px"
-          requiredExtensions="http://www.w3.org/1999/xhtml"
-          // style={{ position: 'relative', zIndex: 1 }}
-        >
+        <foreignObject x={type === 'input' ? x + 2 : x + 1.5} y={y + 1.5} requiredExtensions="http://www.w3.org/1999/xhtml">
           <Handle
             type={type === 'input' ? 'target' : 'source'}
             position={position}
@@ -55,7 +48,6 @@ const LogicGatePort: FC<LogicGatePortProps> = ({ id, position, x, y, label, acti
             style={{
               position: 'absolute',
               background: active ? (type === 'input' ? blue : green) : blue,
-              // borderRadius: '50%',
             }}
           />
         </foreignObject>

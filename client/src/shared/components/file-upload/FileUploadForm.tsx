@@ -54,7 +54,11 @@ const FileUploadForm: React.FC<FileUploadFormProps> = ({
       try {
         const result = await parseCsvToTruthTable(file);
         onFileParsed?.(result);
-        toast.current?.show({ severity: 'success', summary: 'Wczytano CSV', detail: `Wczytano ${result.rows.length} wierszy` });
+        toast.current?.show({
+          severity: 'success',
+          summary: t('common.parsing.csvOk'),
+          detail: t('common.parsing.csvLoaded', { length: result.rows.length }),
+        });
       } catch (err: any) {
         if (err instanceof TranslatableError) {
           toast.current?.show({
@@ -82,7 +86,7 @@ const FileUploadForm: React.FC<FileUploadFormProps> = ({
 
     setTotalSize(_totalSize);
     if (toast.current) {
-      toast.current.show({ severity: 'info', summary: 'Success', detail: 'File Uploaded' });
+      toast.current.show({ severity: 'info', summary: 'Success', detail: t('common.parsing.fileUploaded') });
     }
   };
 

@@ -57,6 +57,16 @@ const AuthProvider = ({ children }: { children?: JSX.Element | any }) => {
     }
   };
 
+  const signup = async (name: string, email: string, password: string, passwordConfirm: string): Promise<IAuthUser | null> => {
+    try {
+      const res: IAuthUser = await httpService.post('auth/signup', { name, email, password, passwordConfirm });
+      return { verificationCode: res?.verificationCode };
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
+  };
+
   const logout = async () => {
     try {
       await httpService.get('auth/logout');
@@ -123,7 +133,7 @@ const AuthProvider = ({ children }: { children?: JSX.Element | any }) => {
     }
   }, []);
 
-  return <AuthContext.Provider value={{ auth: authCookies || {}, user, login, logout }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ auth: authCookies || {}, user, login, logout, signup }}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

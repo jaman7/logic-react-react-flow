@@ -2,7 +2,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IAuthPath } from './auth.enum';
-import { defaultConfig, forgotPasswordConfig, loginConfig } from './form.config';
+import { defaultConfig, defaultValues, loginConfig, loginValues } from './form.config';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import LoginFooter from './LoginFooter';
@@ -14,44 +14,60 @@ import { IFormElements, IFormElementsConfig } from '@/shared/components/formElem
 import FormElements from '@/shared/components/formElements/FormElements';
 import { useGlobalStore } from '@/store/useGlobalStore';
 
-const { PATH_LOGIN, PATH_LOGOUT, PATH_SIGNUP, PATH_FORGOT_PASSWORD, PATH_UPDATE_PASSWORD } = IAuthPath;
+const { PATH_LOGIN, PATH_LOGOUT, PATH_SIGNUP } = IAuthPath;
 
-export interface IFormData {
-  email?: string | undefined;
-  password?: string;
-  passwpasswordConfirmord?: string;
+export interface IFormPanelValues {
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirm: string;
 }
 
 interface IProps {
   path?: string;
 }
 
-const schema = yup.object({
-  email: yup.string().email().required(),
-  password: yup
-    .string()
-    .required('Password is required')
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*[\]{}()?"\\,><':;|_~`=+-])[a-zA-Z\d!@#$%^&*[\]{}()?"\\,><':;|_~`=+-]{8,99}$/,
-      'Must contain at least 8 Characters, 1 Uppercase, 1 Lowercase, 1 Special Character, and 1 Number'
-    ),
-  passwordConfirm: yup.string().oneOf([yup.ref('password')], 'Passwords must match'),
-});
+const getSchema = (path?: string) => {
+  const base = {
+    email: yup.string().email().required('Email is required'),
+    password: yup
+      .string()
+      .required('Password is required')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*[\]{}()?"\\,><':;|_~`=+-])[a-zA-Z\d!@#$%^&*[\]{}()?"\\,><':;|_~`=+-]{8,99}$/,
+        'Must contain at least 8 Characters, 1 Uppercase, 1 Lowercase, 1 Special Character, and 1 Number'
+      ),
+  };
+
+  if (path === PATH_SIGNUP) {
+    return yup.object({
+      ...base,
+      name: yup.string().required('Name is required'),
+      passwordConfirm: yup
+        .string()
+        .required('Please confirm your password')
+        .oneOf([yup.ref('password')], 'Passwords must match'),
+    });
+  }
+
+  return yup.object(base);
+};
 
 const Login: React.FC<IProps> = ({ path }) => {
   const [formConfig, setFormConfig] = useState<IFormElements[]>([]);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isUserCreated, setIsUserCreated] = useState(false);
   const [butonNameSubmit, setButonNameSubmit] = useState('');
   const { t } = useTranslation();
-  const { login, logout } = useAuth() || {};
+  const { login, logout, signup } = useAuth() || {};
   const navigate = useNavigate();
   const { clearStore } = useGlobalStore();
 
   const methods = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(getSchema(path)),
     mode: 'onChange',
-    defaultValues: { email: 'test@test.io', password: 'Test123$' },
+    defaultValues: path === PATH_SIGNUP ? defaultValues() : loginValues(),
   });
 
   const { getValues, formState } = methods;
@@ -78,14 +94,6 @@ const Login: React.FC<IProps> = ({ path }) => {
         config = defaultConfig();
         setButonNameSubmit(t('common.auth.buttons.update'));
         break;
-      case PATH_UPDATE_PASSWORD:
-        config = defaultConfig();
-        setButonNameSubmit(t('common.auth.buttons.update'));
-        break;
-      case PATH_FORGOT_PASSWORD:
-        config = forgotPasswordConfig();
-        setButonNameSubmit(t('common.auth.buttons.reset'));
-        break;
       default:
         break;
     }
@@ -93,25 +101,22 @@ const Login: React.FC<IProps> = ({ path }) => {
   }, [path]);
 
   const handleSubmit = async () => {
-    const { email, password } = getValues() || {};
-
+    const { name, email, password, passwordConfirm } = getValues() ?? {};
     setMessage('');
     setLoading(true);
     try {
       switch (path) {
         case PATH_LOGIN:
-          login?.(email, password).then(() => navigate('/'));
+          methods.reset(loginValues());
+          login?.(email as string, password as string).then(() => navigate('/'));
+          setIsUserCreated(false);
           break;
         case PATH_SIGNUP:
-          navigate('/');
-          break;
-        case PATH_UPDATE_PASSWORD: {
-          break;
-        }
-        case PATH_FORGOT_PASSWORD:
-          setMessage(t('common.auth.info.successResetPass'));
-          break;
-        default:
+          methods.reset(defaultValues());
+          signup?.(name as string, email as string, password as string, passwordConfirm as string).then((res) => {
+            setIsUserCreated(!!res?.verificationCode);
+            navigate(PATH_LOGIN);
+          });
           break;
       }
     } catch {
@@ -127,9 +132,6 @@ const Login: React.FC<IProps> = ({ path }) => {
         break;
       case PATH_SIGNUP:
         setMessage(t('common.auth.errors.failCreate'));
-        break;
-      case PATH_FORGOT_PASSWORD:
-        setMessage(t('common.auth.errors.failReset'));
         break;
       default:
         break;
@@ -151,7 +153,7 @@ const Login: React.FC<IProps> = ({ path }) => {
               </Button>
             </div>
           </form>
-          <LoginFooter path={path} error={message} />
+          <LoginFooter path={path} error={message} isUserCreated={isUserCreated} />
         </div>
       ) : (
         <></>

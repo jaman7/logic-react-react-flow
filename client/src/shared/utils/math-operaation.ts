@@ -8,7 +8,7 @@ export const mathOperation = (a: number | null | undefined, b: number | null | u
   return parseFloat(result.toFixed(maxPrecision));
 };
 
-export const isNumeric = <T,>(value: T): boolean =>
+export const isNumeric = <T>(value: T): boolean =>
   typeof value === 'number'
     ? !isNaN(value as unknown as number)
     : typeof value === 'string'
