@@ -1,0 +1,145 @@
+$kmap-cell-size: 3rem;
+
+%kmap-text {
+  font-family: var(--main-font-notosans);
+  color: var(--main-text-primary);
+}
+
+.kmap-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.kmap-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.kmap-content {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.kmap-output-label {
+  @extend %kmap-text;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.kmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, #{$kmap-cell-size});
+  grid-template-rows: repeat(5, #{$kmap-cell-size});
+  gap: 0.3rem;
+  place-items: center center;
+}
+
+.kmap-label {
+  @extend %kmap-text;
+
+  font-weight: 500;
+}
+
+.kmap-col-label,
+.kmap-row-label,
+.kmap-empty,
+.kmap-cell {
+  width: $kmap-cell-size;
+  height: $kmap-cell-size;
+}
+
+.kmap-col-label,
+.kmap-row-label {
+  @extend %kmap-text;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-bg-gray);
+  border-radius: 6px;
+}
+
+.kmap-cell {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--main-border-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &.highlight {
+    background-color: var(--kmap-highlight-bg);
+    border-color: var(--kmap-highlight-border);
+    color: var(--kmap-highlight-text);
+    animation: kmap-pulse 1.2s infinite;
+  }
+
+  &.grouped {
+    background-color: var(--kmap-grouped-bg);
+    border-color: var(--kmap-grouped-border);
+    box-shadow: inset 0 0 0 2px var(--kmap-grouped-inset);
+  }
+
+  &.manual {
+    background-color: var(--kmap-manual-bg);
+    border-color: var(--kmap-manual-border);
+    box-shadow: 0 0 0 2px var(--kmap-manual-inset) inset;
+  }
+}
+
+.kmap-expression {
+  @extend %kmap-text;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kmap-legend {
+  @extend %kmap-text;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 0.5rem;
+
+  &-item {
+    padding: 4px;
+    border-radius: 4px;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+@keyframes kmap-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(32 201 151 / 40%);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgb(32 201 151 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(32 201 151 / 0%);
+  }
+}

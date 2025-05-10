@@ -1,0 +1,12 @@
+.minimize-button {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__pre {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    white-space: pre-wrap;
+  }
+}

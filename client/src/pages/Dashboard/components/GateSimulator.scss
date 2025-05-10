@@ -1,0 +1,19 @@
+@use "@scss/extend" as *;
+
+.gate-simulator {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--main-border-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  @extend %shared-box-shadow;
+
+  & .led {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+  }
+}

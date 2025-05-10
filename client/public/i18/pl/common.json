@@ -1,0 +1,60 @@
+{
+  "common": {
+    "logicControls": {
+      "play": "Play",
+      "stop": "Stop",
+      "prev": "Poprzedni",
+      "next": "Następny",
+      "chartReset": "Chart reset"
+    },
+    "buttons": {
+      "ok": "OK",
+      "cancel": "Anuluj",
+      "yes": "Tak",
+      "no": "Nie",
+      "close": "Zamknij",
+      "save": "Zapisz",
+      "delete": "Usuń",
+      "edit": "Edytuj",
+      "add": "Dodaj",
+      "clone": "Klonuj",
+      "logIn": "Zaloguj",
+      "logOut": "Wyloguj",
+      "view": "Przeglądaj",
+      "exportCsv": "Eksportuj do CSV"
+    },
+    "table": {
+      "emptyMessage": "Nie znaleziono danych.",
+      "currentPageReport": "{{first}} do {{last}} z {{totalRecords}}",
+      "filterInputPlaceholder": "Wyszukaj"
+    },
+    "auth": {
+      "status": "Aktualny status",
+      "email": "E-mail",
+      "password": "Hasło",
+      "passwordConfirm": "Powtórz Hasło",
+      "errors": {
+        "failLogon": "Logowanie nie powiodło się",
+        "failCreate": "Nie udało się utworzyć konta",
+        "failUpdate": "Nie udało się zaktualizować konta",
+        "failReset": "Nie udało się zresetować hasła"
+      },
+      "buttons": {
+        "logIn": "Zaloguj się",
+        "update": "Zaktualizuj",
+        "reset": "Zresetuj hasło"
+      }
+    },
+    "error": "Błąd",
+    "parsing": {
+      "csvError": "Błąd parsowania CSV: {{error}}",
+      "invalidRow": "Nieprawidłowe dane w wierszu {{row}}: {{input}}, {{output}}",
+      "unexpectedToken": "Nieoczekiwany token \"{{token}}\" w wyrażeniu.",
+      "unexpectedEnd": "Nieoczekiwany koniec wyrażenia.",
+      "expectedClosingParenthesis": "Oczekiwano zamykającego nawiasu.",
+      "invalidCharacter": "Nieprawidłowy znak \"{{char}}\" w wyrażeniu.",
+      "expressionParseError": "Błąd parsowania wyrażenia dla {{label}}: {{error}}",
+      "unsuportedAst": "Nieprawidłowy AST type: {{type}}"
+    }
+  }
+}

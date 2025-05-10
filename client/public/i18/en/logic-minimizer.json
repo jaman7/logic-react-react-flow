@@ -1,0 +1,27 @@
+{
+  "form": {
+    "inputs": "Inputs count",
+    "outputs": "Outputs count",
+    "thruhTable": "Thruh Table Model"
+  },
+  "table": {
+    "input": "Binary input",
+    "inputHex": "Hex input",
+    "output": "Binary output",
+    "outputHex": "Hex output",
+    "validation": {
+      "required": "Value is required",
+      "invalidBinary": "Only zeros and ones ({{bits}} bits)!",
+      "invalidLength": "LP: {{lp}}, column: {{col}}, Required length: {{maxLength}}",
+      "tooManyVariables": "Too many input variables – Karnaugh map supports max 4."
+    }
+  },
+  "minimizedFunction": {
+    "title": "Minimized function",
+    "kmapError": "Karnaugh map error!",
+    "karnaughMap": "Karnaugh map",
+    "truthTable": "Truth table",
+    "booleanExpression": "Boolean expression",
+    "minimizedExpression": "Minimized expression"
+  }
+}

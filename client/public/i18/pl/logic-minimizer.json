@@ -1,0 +1,26 @@
+{
+  "form": {
+    "inputs": "Inputs count",
+    "outputs": "Outputs count",
+    "thruhTable": "Thrue Table model"
+  },
+  "table": {
+    "input": "Wejście binarne",
+    "inputHex": "Wejście szesnastkowe",
+    "output": "Wyjście binarne",
+    "outputHex": "Wyjście szesnastkowe",
+    "validation": {
+      "required": "Wartość wymagana",
+      "invalidBinary": "Tylko zera i jedynki ({{bits}} bitów)!",
+      "invalidLength": "LP: {{lp}}, columna: {{col}}, Wymagana długość: {{maxLength}}",
+      "tooManyVariables": "Zbyt wiele zmiennych wejściowych – mapa Karnaugh obsługuje maksymalnie 4."
+    }
+  },
+  "minimizedFunction": {
+    "title": "Zminimalizowana funkcja",
+    "kmapError": "Błąd mapy Karnaugha!",
+    "karnaughMap": "Mapa Karnaugha",
+    "truthTable": "Tabela prawdy",
+    "booleanExpression": "Wyrażenie"
+  }
+}

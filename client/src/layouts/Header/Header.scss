@@ -1,0 +1,21 @@
+@use "@scss/extend" as *;
+@use "@scss/mixins" as *;
+@use "sass:color";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-bg-secondary);
+  padding: var(--spacing-md);
+  color: var(--main-bg-white);
+  border-bottom: 1px solid var(--main-bg-gray);
+
+  @extend %shared-box-shadow;
+
+  @include mq(maxsm) {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}

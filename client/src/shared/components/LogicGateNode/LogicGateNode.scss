@@ -1,0 +1,25 @@
+@use "@scss/extend" as *;
+
+.logic-gate-node {
+  width: 160px;
+  padding: 1rem;
+  border-radius: 8px;
+
+  // border: 1px solid var(--main-border-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // background-color: var(--main-bg-white);
+  gap: 8px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+
+  // @extend %shared-box-shadow;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--main-text-primary);
+  }
+}

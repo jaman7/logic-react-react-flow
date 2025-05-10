@@ -1,0 +1,19 @@
+.gate-icon {
+  width: 250px;
+  stroke-width: 2;
+  stroke: var(--main-bg-blue);
+  fill: none;
+  position: relative;
+  z-index: 1;
+
+  &.selected {
+    stroke: #2dc;
+  }
+
+  &-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

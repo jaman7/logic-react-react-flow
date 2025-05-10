@@ -1,0 +1,60 @@
+{
+  "common": {
+    "logicControls": {
+      "play": "Play",
+      "stop": "Stop",
+      "prev": "Previous",
+      "next": "Next",
+      "chartReset": "Chart reset"
+    },
+    "buttons": {
+      "ok": "OK",
+      "cancel": "Cancel",
+      "yes": "Yes",
+      "no": "No",
+      "close": "Close",
+      "save": "Save",
+      "delete": "Delete",
+      "edit": "Edit",
+      "add": "Add",
+      "clone": "Clone",
+      "logIn": "Log In",
+      "logOut": "Log Out",
+      "view": "Browse",
+      "exportCsv": "Export to CSV"
+    },
+    "table": {
+      "emptyMessage": "No data found.",
+      "currentPageReport": "{{first}} to {{last}} of {{totalRecords}}",
+      "filterInputPlaceholder": "Search"
+    },
+    "auth": {
+      "status": "Current status",
+      "email": "Email",
+      "password": "Password",
+      "passwordConfirm": "Confirm password",
+      "errors": {
+        "failLogon": "Failed to log in",
+        "failCreate": "Failed to create an account",
+        "failUpdate": "Failed to update account",
+        "failReset": "Failed to reset password"
+      },
+      "buttons": {
+        "logIn": "Log In",
+        "update": "Update",
+        "reset": "Reset Password"
+      }
+    },
+    "error": "Error",
+    "parsing": {
+      "csvError": "CSV parsing error: {{error}}",
+      "invalidRow": "Invalid data in row {{row}}: {{input}}, {{output}}",
+      "unexpectedToken": "Unexpected token \"{{token}}\" in expression.",
+      "unexpectedEnd": "Unexpected end of expression.",
+      "expectedClosingParenthesis": "Expected closing parenthesis.",
+      "invalidCharacter": "Invalid character \"{{char}}\" in expression.",
+      "expressionParseError": "Failed to parse expression for {{label}}: {{error}}",
+      "unsuportedAst": "Unsupported AST type: {{type}}"
+    }
+  }
+}

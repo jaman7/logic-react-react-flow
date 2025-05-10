@@ -1,0 +1,17 @@
+.minimized-result {
+  background-color: var(--main-text-white);
+
+  & .title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--main-font-notosans);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,26 @@
+.file-upload {
+  & .p-fileupload-buttonbar {
+    padding: 0.25rem;
+
+    & > div {
+      flex: 1;
+      margin-left: 0.5rem;
+
+      & .p-progressbar {
+        width: 100% !important;
+      }
+    }
+  }
+
+  & .p-fileupload-choose {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: var(--main-bg-white);
+    color: var(--main-text-primary);
+    line-height: 1;
+    transition: all 250ms ease-in-out;
+    outline: none;
+    font-weight: 500;
+    border: 1px solid var(--main-border-primary);
+  }
+}
