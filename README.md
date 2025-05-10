@@ -40,7 +40,7 @@ email = test@test.io
 password: "Test123$"
  
 
-### 🧠 Client:
+# 🧠 Client:
 An interactive educational platform built with React, TypeScript, and React Flow for simulating, visualizing, and minimizing digital logic functions. The application includes real-time logic gate simulation, Karnaugh map-based minimization, and automatic logic circuit generation.
 
 ## 🚀 Features
@@ -93,7 +93,7 @@ An interactive educational platform built with React, TypeScript, and React Flow
 
 
 
-### 🧠 Server:
+# 🧠 Server:
 
 ## 🧠 Logic Table API (Node.js + Prisma + Redis + JWT)
 
