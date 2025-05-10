@@ -103,14 +103,14 @@ This project is a RESTful API built with **Express.js**, **Prisma ORM**, **Postg
 
 ## 🚀 server Features
 
-- ✅ JWT-based authentication (access & refresh tokens)
-- ✅ Token verification using RSA keys
-- ✅ Secure session handling with Redis
-- ✅ Modular architecture with Zod validation
-- ✅ REST API with:
+-  JWT-based authentication (access & refresh tokens)
+-  Token verification using RSA keys
+-  Secure session handling with Redis
+-  Modular architecture with Zod validation
+-  REST API with:
   - User CRUD (with roles)
   - Truth table management (preloaded examples)
-- ✅ Environment-based config system using `config` and `envalid`
-- ✅ Dockerized Redis
-- ✅ Testing with Jest + Supertest
-- ✅ Prettier + ESLint ready
+-  Environment-based config system using `config` and `envalid`
+-  Dockerized Redis
+-  Testing with Jest + Supertest
+-  Prettier + ESLint ready
