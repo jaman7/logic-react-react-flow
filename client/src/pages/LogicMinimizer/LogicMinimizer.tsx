@@ -48,7 +48,6 @@ const LogicMinimizer: React.FC = () => {
 
   const onAddNewRow = useCallback(
     (id: number) => {
-      console.log(id);
       const row = { input: null, inputHex: null, output: null, outputHex: null, id: null };
       const newRow: TruthTableRow = Object.keys(row).reduce((acc, key) => {
         if (key === 'id') {

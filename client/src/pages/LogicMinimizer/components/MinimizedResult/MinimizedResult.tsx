@@ -16,8 +16,6 @@ const MinimizedResult: React.FC<MinimizedResultProps> = ({ inputCount, outputCou
   const { t } = useTranslation('logic-minimizer');
   const [results, setResults] = useState<MinimizedFunction[]>([]);
 
-  console.log('inputCount:', inputCount, 'outputCount:', outputCount, tableData);
-
   useEffect(() => {
     if (!tableData?.length || inputCount < 1 || outputCount < 1) return;
 
@@ -59,8 +57,6 @@ const MinimizedResult: React.FC<MinimizedResultProps> = ({ inputCount, outputCou
         });
       }
     }
-
-    console.log(newResults);
 
     setResults(newResults);
     onResult(newResults);
